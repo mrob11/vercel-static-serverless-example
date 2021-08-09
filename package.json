@@ -1,0 +1,23 @@
+{
+  "name": "vercel-static-serverless-example",
+  "version": "1.0.0",
+  "description": "Demonstrating how Vercel handles serverless lambdas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrob11/vercel-static-serverless-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrob11/vercel-static-serverless-example/issues"
+  },
+  "homepage": "https://github.com/mrob11/vercel-static-serverless-example#readme",
+  "dependencies": {
+    "next-iron-session": "^4.2.0"
+  }
+}

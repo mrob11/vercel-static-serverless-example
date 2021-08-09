@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Vercel Static + Serverless Example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@geist-ui/style@latest/dist/style.css"
+    />
+    <style type="text/css">
+      .container {
+        width: 100%;
+        max-width: 64rem;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Vercel Static + Serverless Example</h1>
+      <div>
+        <button id="login">Log in</button>
+        <button id="logout">Log out</button>
+        <div id="session">--</div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const session = document.querySelector("#session")
+        const checkSession = () =>
+          fetch("/api/session")
+            .then(r => r.json())
+            .then(data => {
+              if (data.error) {
+                session.textContent = data.error
+              } else {
+                session.textContent = JSON.stringify(data.user)
+              }
+            })
+        checkSession()
+        document.querySelector("#login").addEventListener("click", () => {
+          fetch("/api/login").then(() => checkSession())
+        })
+        document.querySelector("#logout").addEventListener("click", () => {
+          fetch("/api/logout").then(() => checkSession())
+        })
+      })
+    </script>
+  </body>
+</html>
